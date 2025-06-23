@@ -1,7 +1,9 @@
 import PostList from '@/app/components/post/PostList';
+import Link from 'next/link';
 import { api } from '@/app/lib/api';
 
 export default async function HomePage() {
+  // Fetch posts from API
   const posts = await api.get('/posts');
 
   return (
@@ -11,6 +13,23 @@ export default async function HomePage() {
         <p className="text-xl text-gray-600">
           A platform for sharing your thoughts and ideas
         </p>
+      </div>
+      
+      <div className="flex justify-center mb-8">
+        <div className="flex space-x-4">
+          <Link 
+            href="/signup" 
+            className="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition-colors"
+          >
+            Get Started
+          </Link>
+          <Link 
+            href="/dashboard" 
+            className="bg-white text-indigo-600 border border-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-50 transition-colors"
+          >
+            Dashboard
+          </Link>
+        </div>
       </div>
       
       <div className="mb-12">
