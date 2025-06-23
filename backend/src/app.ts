@@ -1,4 +1,5 @@
-import express from 'express';
+// app.ts
+import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.route';
 import postRoutes from './routes/post.route';
@@ -15,12 +16,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
 // Error handling middleware
-app.use((err: Error, _req: express.Request, res: express.Response) => {
-  if (err instanceof ApiError) {
-    return res.status(err.statusCode).json({ message: err.message });
+app.use((
+  (err: Error, _req: Request, res: Response, next: NextFunction) => {
+    if (err instanceof ApiError) {
+      return res.status(err.statusCode).json({ message: err.message });
+    }
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
   }
-  console.error(err);
-  res.status(500).json({ message: 'Internal server error' });
-});
+) as express.ErrorRequestHandler);
 
 export default app;
