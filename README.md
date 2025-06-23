@@ -8,7 +8,8 @@ A full-stack personal blogging platform built with:
 - **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
 
 ---
-
+Screenshot of the Application:-
+![Screenshot](https://github.com/UzairDevs/attack_capital_assignment/blob/main/Screenshot%20(1).png?raw=true)
 ## 🗂️ Repository Structure
 
 blog-platform/
