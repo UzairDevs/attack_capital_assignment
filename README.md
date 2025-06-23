@@ -13,70 +13,53 @@ A full-stack personal blogging platform built with:
 
 blog-platform/
 ├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── index.ts
-│   │   ├── controllers/
-│   │   │   ├── auth.controller.ts
-│   │   │   └── post.controller.ts
-│   │   ├── middleware/
-│   │   │   └── auth.middleware.ts
-│   │   ├── models/
-│   │   │   └── index.ts
-│   │   ├── routes/
-│   │   │   ├── auth.route.ts
-│   │   │   └── post.route.ts
-│   │   ├── utils/
-│   │   │   └── apiError.ts
-│   │   ├── app.ts
-│   │   └── server.ts
-│   ├── prisma/
-│   │   └── schema.prisma
-│   ├── .env
-│   ├── package.json
-│   └── tsconfig.json
+│ ├── src/
+│ │ ├── config/
+│ │ │ └── index.ts # env & JWT secret
+│ │ ├── controllers/
+│ │ │ ├── auth.controller.ts
+│ │ │ └── post.controller.ts
+│ │ ├── middleware/
+│ │ │ └── auth.middleware.ts
+│ │ ├── models/
+│ │ │ └── index.ts # Prisma client export
+│ │ ├── routes/
+│ │ │ ├── auth.route.ts
+│ │ │ └── post.route.ts
+│ │ ├── utils/
+│ │ │ └── apiError.ts
+│ │ ├── app.ts # Express app setup
+│ │ └── server.ts # HTTP server bootstrap
+│ ├── prisma/
+│ │ └── schema.prisma # DB schema
+│ ├── .env # DATABASE_URL, JWT_SECRET, PORT
+│ ├── package.json
+│ └── tsconfig.json
+│
 ├── frontend/
-│   ├── app/
-│   │   ├── (auth)/
-│   │   │   ├── login/
-│   │   │   │   └── page.tsx
-│   │   │   └── signup/
-│   │   │       └── page.tsx
-│   │   ├── dashboard/
-│   │   │   └── page.tsx
-│   │   ├── components/
-│   │   │   ├── auth/
-│   │   │   │   ├── LoginForm.tsx
-│   │   │   │   └── SignupForm.tsx
-│   │   │   ├── layout/
-│   │   │   │   ├── Footer.tsx
-│   │   │   │   ├── Header.tsx
-│   │   │   │   └── ProtectedRoute.tsx
-│   │   │   ├── post/
-│   │   │   │   ├── CreatePostForm.tsx
-│   │   │   │   ├── PostCard.tsx
-│   │   │   │   └── PostList.tsx
-│   │   │   └── ui/
-│   │   │       └── Button.tsx
-│   │   ├── context/
-│   │   │   └── AuthContext.tsx
-│   │   ├── lib/
-│   │   │   ├── api.ts
-│   │   │   └── utils.ts
-│   │   ├── page.tsx
-│   │   └── layout.tsx
-│   ├── public/
-│   │   └── logo.svg
-│   ├── styles/
-│   │   └── globals.css
-│   ├── tailwind.config.js
-│   ├── next.config.js
-│   ├── package.json
-│   └── tsconfig.json
-└── README.md
-yaml
-Copy
-Edit
+│ ├── app/
+│ │ ├── (auth)/ # route group (no URL prefix)
+│ │ │ ├── login/page.tsx # /login
+│ │ │ └── signup/page.tsx # /signup
+│ │ ├── dashboard/page.tsx # /dashboard (protected)
+│ │ ├── components/
+│ │ │ ├── auth/ # LoginForm.tsx, SignupForm.tsx
+│ │ │ ├── layout/ # Header.tsx, Footer.tsx, ProtectedRoute.tsx
+│ │ │ ├── post/ # CreatePostForm.tsx, PostCard.tsx, PostList.tsx
+│ │ │ └── ui/ # reusable UI (Button.tsx)
+│ │ ├── context/AuthContext.tsx
+│ │ ├── lib/
+│ │ │ ├── api.ts # axios wrappers
+│ │ │ └── utils.ts # helper functions
+│ │ ├── layout.tsx # root layout
+│ │ └── page.tsx # homepage listing all posts
+│ ├── public/logo.svg
+│ ├── styles/globals.css
+│ ├── tailwind.config.js
+│ ├── next.config.js
+│ ├── package.json
+│ └── tsconfig.json
+│
 
 ---
 
