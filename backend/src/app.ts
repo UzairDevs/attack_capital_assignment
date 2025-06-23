@@ -1,4 +1,3 @@
-// app.ts
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.route';
